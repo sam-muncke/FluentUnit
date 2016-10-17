@@ -1,2 +1,2 @@
 # FluentUnit
-A little C# library for writing nicer units.
+A little C# library for writing nicer unit tests.
