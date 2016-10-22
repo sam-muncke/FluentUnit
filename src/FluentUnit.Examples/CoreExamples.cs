@@ -18,19 +18,18 @@ namespace FluentUnit.Examples
         }
 
         [Test]
-        public void TestReturnValue()
+        public void Testing_A_Returned_Value()
         {
             const string expected = "SomeString";
 
-            Given.That(() => { })
-                .And.That(() => _mockDependency.DependencyProperty = expected)
-                .And.A.Subject(() =>  new Subject(_mockDependency))
+            Given.A.Context(() => _mockDependency.DependencyProperty = expected)
+                .And.Subject(() => new Subject(_mockDependency))
                 .When(subject => subject.ReturnSomething(0, "AnyValue"))
                 .Then(result => Assert.That(result, Is.EqualTo(expected)));
         }
 
         [Test]
-        public void TestMethodInvocation()
+        public void Testing_A_Method_Invocation()
         {
             Given.A.Subject(() => new Subject(_mockDependency))
                 .When(subject => subject.DoSomething(0, "AnyValue"))
@@ -38,15 +37,15 @@ namespace FluentUnit.Examples
         }
 
         [Test]
-        public void TestDelegatedMethodInvocation()
+        public void Testing_A_Delegated_Method_Invocation()
         {
             Given.A.Subject(() => new Subject(_mockDependency))
-                .When(subject => subject.ThrowException())
+                .When<Action>(subject => () => subject.ThrowException())
                 .Then(action => Assert.Throws<Exception>(action.Invoke));
         }
 
         [Test]
-        public void TestConstructor()
+        public void Testing_A_Constructor()
         {
             Given.A.Subject(() => new Subject(null))
                 .WhenCreated()
@@ -54,18 +53,18 @@ namespace FluentUnit.Examples
         }
 
         [Test]
-        public async Task TestReturnValueFromAsyncMethod()
+        public async Task Testing_A_Returned_Value_From_An_Async_Method()
         {
-           const string expected = "SomeString";
+            const string expected = "SomeString";
 
-            await Given.That(() => _mockDependency.DependencyProperty = expected)
-                .And.A.Subject(() => new Subject(_mockDependency))
+            await Given.A.Context(() => _mockDependency.DependencyProperty = expected)
+                .And.Subject(() => new Subject(_mockDependency))
                 .When(subject => subject.ReturnSomethingAsync(0, "AnyValue"))
                 .Then(result => Assert.That(result, Is.EqualTo(expected)));
         }
 
         [Test]
-        public async Task TestAsyncMethodInvocation()
+        public async Task Testing_An_Async_Method_Invocation()
         {
             await Given.A.Subject(() => new Subject(_mockDependency))
                 .When(subject => subject.DoSomethingAsync(0, "AnyValue"))

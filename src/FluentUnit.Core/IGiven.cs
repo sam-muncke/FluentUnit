@@ -4,7 +4,7 @@ namespace FluentUnit.Core
 {
     public interface IGiven
     {
-        PostGivenThat That(Action setup);
-        PostGivenA A { get; }
+        IAnd<IGiven> Context(Action arrange);
+        IWhen<TSubject> Subject<TSubject>(Func<TSubject> createSubject);
     }
 }

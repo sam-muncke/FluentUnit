@@ -25,7 +25,7 @@ namespace FluentUnit.Examples.TestObjects
         {
             await Task.Run(() =>
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
                 _dependency.DependencyMethod();
             });
         }
@@ -39,7 +39,7 @@ namespace FluentUnit.Examples.TestObjects
         {
             return await Task.Run(() =>
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
                 return _dependency.DependencyProperty;
             });
         }
