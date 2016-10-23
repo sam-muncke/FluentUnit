@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>fluentunit-core</id>
+    <title>Fluent Unit Core</title>
+    <version>$version$</version>
+    <authors>Sam Muncke</authors>
+    <owners>Sam Muncke</owners>
+    <description>A little fluent library for BDD style Unit Test</description>
+    <projectUrl>https://github.com/sam-muncke/FluentUnit/</projectUrl>
+    <licenseUrl>https://github.com/sam-muncke/FluentUnit/blob/master/LICENSE</licenseUrl>
+  </metadata>
+</package>
